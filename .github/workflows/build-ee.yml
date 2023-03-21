@@ -13,22 +13,11 @@ jobs:
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v3
-        
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-2
 
       - name: Install Python Dependencies
         run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f requirements.txt ]; then pip3 install -r requirements.txt; fi
 
       - name: Run ansible playbook
         run: |
-          
-          ansible-playbook aws-infra.yaml -e "ansible_python_interpreter=`which python3`" 
-          ansible-playbook aws-infra.yaml -e "ansible_python_interpreter=`which python3`" --tags create_ec2
-          ansible-inventory -i inventories/aws-ec2.yml --list -e "ansible_python_interpreter=`which python3`"
+          ansible-galaxy collection install -r collections/requirements.yml
