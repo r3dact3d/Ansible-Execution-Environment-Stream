@@ -9,6 +9,7 @@
     ee_registry_username: student
     ee_registry_password: redhat123
     ee_ah_host: hub.lab.example.com
+    ah_token: 1ea6423f79ef35815bb81ee795037f4a0443062e
     ee_list:
       - name: custom_ee
         # base_image
