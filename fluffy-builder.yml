@@ -5,9 +5,9 @@
   collections:
     - infra.ee_utilities
   vars:
-    ee_registry_dest: ahnosso.node
-    ee_registry_username: admin
-    ee_registry_password: secret123
+    ee_registry_dest: hub.lab.example.com
+    ee_registry_username: student
+    ee_registry_password: redhat123
     ee_list:
       - name: custom_ee
         # base_image
