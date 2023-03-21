@@ -1,0 +1,33 @@
+---
+- name: Playbook to create fluffy EE
+  hosts: localhost
+  gather_facts: false
+  collections:
+    - infra.ee_utilities
+  vars:
+    ee_registry_dest: ahnosso.node
+    ee_registry_username: admin
+    ee_registry_password: secret123
+    ee_list:
+      - name: custom_ee
+        # base_image
+        bindep:
+          - python38-requests [platform:centos-8 platform:rhel-8]
+          - python38-pyyaml [platform:centos-8 platform:rhel-8]
+        python:
+          - pytz  # for schedule_rrule lookup plugin
+          - python-dateutil>=2.7.0  # schedule_rrule
+          - awxkit  # For import and export modules
+        collections:
+          - name: awx.awx
+            type: url
+            source: https://galaxy.ansible.com/download/awx-awx-21.11.0.tar.gz
+          - name: infra.controller_configuration
+          - name: infra.ah_configuration
+        prepend:
+          - RUN whoami
+          - RUN cat /etc/os-release
+        append:
+          - RUN echo This is a post-install command!
+  roles:
+    - infra.ee_utilities.ee_builder
