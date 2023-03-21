@@ -9,10 +9,13 @@
     ee_registry_username: student
     ee_registry_password: redhat123
     ee_ah_host: hub.lab.example.com
-    ah_token: 1ea6423f79ef35815bb81ee795037f4a0443062e
+    ee_ah_token: 1ea6423f79ef35815bb81ee795037f4a0443062e
+    ee_builder_dir_clean: false
+    builder_dir: "."
     ee_list:
       - name: custom_ee
-        # base_image
+        base_image: quay.io/ansible/ansible-runner:stable-2.12-latest
+        builder_image: quay.io/ansible/ansible-builder:stable-2.12-latest
         bindep:
           - python38-requests [platform:centos-8 platform:rhel-8]
           - python38-pyyaml [platform:centos-8 platform:rhel-8]
