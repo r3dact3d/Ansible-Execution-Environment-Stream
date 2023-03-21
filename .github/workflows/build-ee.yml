@@ -1,4 +1,4 @@
-name: 'Ansible GitHub Actions'
+name: 'Ansible Execution Environment Builder'
 on:
   workflow_dispatch:
 
@@ -28,6 +28,7 @@ jobs:
 
       - name: Run ansible playbook
         run: |
+          
           ansible-playbook aws-infra.yaml -e "ansible_python_interpreter=`which python3`" 
           ansible-playbook aws-infra.yaml -e "ansible_python_interpreter=`which python3`" --tags create_ec2
           ansible-inventory -i inventories/aws-ec2.yml --list -e "ansible_python_interpreter=`which python3`"
