@@ -5,9 +5,10 @@
   collections:
     - infra.ee_utilities
   vars:
-    ee_registry_dest: hub.lab.example.com
+    ee_registry_dest: hub.lab.example.com/staging
     ee_registry_username: student
     ee_registry_password: redhat123
+    ee_ah_host: hub.lab.example.com
     ee_list:
       - name: custom_ee
         # base_image
