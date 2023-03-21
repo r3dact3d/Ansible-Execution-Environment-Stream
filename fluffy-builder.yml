@@ -5,11 +5,11 @@
   collections:
     - infra.ee_utilities
   vars:
-    ee_registry_dest: hub.lab.example.com/staging
-    ee_registry_username: student
-    ee_registry_password: redhat123
-    ee_ah_host: hub.lab.example.com
-    ee_ah_token: 1ea6423f79ef35815bb81ee795037f4a0443062e
+    ee_registry_dest: hub.docker.com/r/r3dact3d/fluffy-hub
+    ee_registry_username: r3dact3d
+    #ee_registry_password: 
+    ee_ah_host: hub.docker.com
+    #ee_ah_token: 
     ee_builder_dir_clean: false
     builder_dir: "."
     ee_list:
@@ -27,12 +27,21 @@
           - name: awx.awx
             type: url
             source: https://galaxy.ansible.com/download/awx-awx-21.11.0.tar.gz
-          - name: infra.controller_configuration
-          - name: infra.ah_configuration
+          #- name: infra.controller_configuration
+          #- name: infra.ah_configuration
         prepend:
           - RUN whoami
           - RUN cat /etc/os-release
         append:
           - RUN echo This is a post-install command!
+          
+  # This pre-task section is provided because older environment or environments like build pipelines may not have ansible-builder pre-installed. This is a good place to install other dependencies that need to be in the build pipeline its self not in the final artifact.
+  pre_tasks:
+    - name: install ansible-builder
+      ansible.builtin.pip:
+        name: ansible-builder
+        executable: pip3.9
+      tags: always
+      
   roles:
     - infra.ee_utilities.ee_builder
