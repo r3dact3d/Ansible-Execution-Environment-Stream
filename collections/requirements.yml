@@ -1,4 +1,5 @@
+---
 collections:
-  - awx.awx
-  - infra.ee_utilities
-  - infra.ah_configuration
+  - name: awx.awx
+  - name: infra.ee_utilities
+  - name: infra.ah_configuration
