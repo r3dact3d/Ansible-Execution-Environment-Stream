@@ -1,5 +1,8 @@
 name: 'Ansible Execution Environment Builder'
 on:
+  push:
+    branches:
+      - 'main'
   workflow_dispatch:
 
 jobs:
