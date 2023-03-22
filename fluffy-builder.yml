@@ -6,7 +6,7 @@
     - infra.ee_utilities
     
   vars:
-    ee_registry_dest: hub.docker.com
+    ee_registry_dest: index.docker.io
     ee_registry_username: r3dact3d
     #ee_registry_password: 
     ee_ah_host: galaxy.ansible.com
