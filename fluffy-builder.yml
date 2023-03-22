@@ -6,10 +6,10 @@
     - infra.ee_utilities
     
   vars:
-    ee_registry_dest: hub.lab.example.com
-    ee_registry_username: student
+    ee_registry_dest: hub.docker.com
+    ee_registry_username: r3dact3d
     #ee_registry_password: 
-    ee_ah_host: hub.lab.example.com
+    ee_ah_host: galaxy.ansible.com
     #ee_ah_token: 
     ee_builder_dir_clean: false
     builder_dir: "."
