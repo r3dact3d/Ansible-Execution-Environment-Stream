@@ -15,4 +15,4 @@ NOTE: These secrets get passed during the GitHub Actions workflow.
 
 image::https://github.com/r3dact3d/fluffy-ee/actions/workflows/build-ee.yml/badge.svg[link="https://github.com/r3dact3d/fluffy-ee/actions/workflows/build-ee.yml"]
 
-
+image::docs/AutomatedAnsibleEEBuilder.png[Automated Execution Environment Image Builder]
