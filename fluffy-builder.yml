@@ -40,7 +40,7 @@
     - name: install ansible-builder
       ansible.builtin.pip:
         name: ansible-builder
-        executable: pip3.8
+        executable: pip3
       tags: always
       
   roles:
