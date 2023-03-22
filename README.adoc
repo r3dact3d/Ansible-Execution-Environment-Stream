@@ -1,13 +1,18 @@
 .Prerequisites
 * Update https://github.com/r3dact3d/fluffy-ee/settings/secrets/actions[GitHub Secrets]
-** AH_TOKEN - Galaxy or Automation Hub API Key
+** AH_TOKEN - Galaxy or Automation Hub API Key (needs to provide creds for ee_ah_host)
 ** EE_REGISTRY_PASSWORD - DockerHub or Image Registry Password
 
-NOTE: The playbook default is looking for Key Pair named ansible-runner.  
-      If you use a Key Pair named something different, update the variable called link:https://github.com/r3dact3d/aws-cli/blob/main/infra-setup/aws-infra.yaml#L11["aws_keypair"]
+NOTE: These secrets get passed during the GitHub Actions workflow.
+  This method is easy for demo but maynot meet production requirements link:https://github.com/r3dact3d/fluffy-ee/blob/main/.github/workflows/build-ee.yml#L29["Passing Secrets"]
 
+.Example - Need to update if forked
+. `ee_registry_dest` - My personal link:https://hub.docker.com/repositories/r3dact3d["Docker Hub"]
+. `ee_registry_username` - My username for Docker Hub - the password is supplied to GitHub Secrets and passed in workflow
+. `ee_ah_host` - FQDN of Hub to get collections, I chose to just use link:galaxy.ansible.com["Ansible Galaxy"] for ease of use
 
 .Ansible Execution Environment Builder
-* Run workflow
 
 image::https://github.com/r3dact3d/fluffy-ee/actions/workflows/build-ee.yml/badge.svg[link="https://github.com/r3dact3d/fluffy-ee/actions/workflows/build-ee.yml"]
+
+
