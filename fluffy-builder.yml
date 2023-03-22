@@ -6,10 +6,10 @@
     - infra.ee_utilities
     
   vars:
-    ee_registry_dest: hub.docker.com/r3dact3d/fluffy-hub
-    ee_registry_username: r3dact3d
+    ee_registry_dest: hub.lab.example.com
+    ee_registry_username: student
     #ee_registry_password: 
-    ee_ah_host: hub.docker.com
+    ee_ah_host: hub.lab.example.com
     #ee_ah_token: 
     ee_builder_dir_clean: false
     builder_dir: "."
@@ -38,11 +38,11 @@
           
   # This pre-task section is provided because older environment or environments like build pipelines may not have ansible-builder pre-installed. This is a good place to install other dependencies that need to be in the build pipeline its self not in the final artifact.
   pre_tasks:
-    - name: install ansible-builder
+    - name: Install ansible-builder
+      tags: always
       ansible.builtin.pip:
         name: ansible-builder
         executable: pip3
-      tags: always
       
   roles:
     - infra.ee_utilities.ee_builder
