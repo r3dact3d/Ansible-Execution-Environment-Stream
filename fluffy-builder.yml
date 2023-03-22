@@ -9,7 +9,7 @@
     ee_container_runtime: docker
     #ee_registry_username: r3dact3d
     #ee_registry_password: 
-    #ee_ah_host: hub.docker.com
+    ee_ah_host: hub.docker.com
     #ee_ah_token: 
     ee_builder_dir_clean: false
     builder_dir: "."
