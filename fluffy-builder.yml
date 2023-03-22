@@ -7,7 +7,7 @@
     - community.docker
     
   vars:
-    ee_registry_dest: hub.docker.com/r/r3dact3d/fluffy-hub
+    ee_registry_dest: hub.docker.com/r3dact3d/fluffy-hub
     ee_container_runtime: docker
     #ee_registry_username: r3dact3d
     #ee_registry_password: 
