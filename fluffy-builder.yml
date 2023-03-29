@@ -14,7 +14,7 @@
     ee_builder_dir_clean: false
     builder_dir: "."
     ee_list:
-      - name: custom_ee
+      - name: eda_ee
         tag: 1.1.1
         base_image: quay.io/ansible/ansible-runner:latest
         builder_image: quay.io/ansible/ansible-builder:latest
