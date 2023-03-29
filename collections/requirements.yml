@@ -1,5 +1,5 @@
 ---
 collections:
   - name: awx.awx
-  - name: infra.controller_configuration
+  - name: infra.ee_utilities
   - name: infra.ah_configuration
