@@ -1,3 +1,10 @@
+.Purpose
+This repo contains everything needed to create a closed loop automated way to create Execution Environments for Ansible Automation Platform.
+
+The steps below describe what to update in the `fluffy-builder.yml` in order to successfuly create an execution environment.
+
+This will create an image and push to remote image registry, ie. DockerHub
+
 .Prerequisites
 * Update https://github.com/r3dact3d/fluffy-ee/settings/secrets/actions[GitHub Secrets]
 ** AH_TOKEN - Galaxy or Automation Hub API Key (needs to provide creds for `ee_ah_host`)
