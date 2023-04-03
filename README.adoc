@@ -31,9 +31,11 @@ A workflow will begin automaticaly when `fluff-builder.yml` has been updated and
 
 This will create an image and push to remote image registry, ie. DockerHub, Quay,  or Private Automation Hub
 
+== Prereqs
+
 The steps below describe what to update in the `fluffy-builder.yml` in order to successfuly create an execution environment.
 
-.Prerequisites
+.GitHub Secrets
 * Update https://github.com/r3dact3d/fluffy-ee/settings/secrets/actions[GitHub Secrets]
 ** AH_TOKEN - Galaxy or Automation Hub API Key (needs to provide creds for `ee_ah_host`)
 ** EE_REGISTRY_PASSWORD - DockerHub or Image Registry Password (needs to provide creds for `ee_registry_dest`)
@@ -41,13 +43,16 @@ The steps below describe what to update in the `fluffy-builder.yml` in order to 
 NOTE: These secrets get passed during the GitHub Actions workflow.
   This method is easy for demo but maynot meet production requirements link:https://github.com/r3dact3d/fluffy-ee/blob/main/.github/workflows/build-ee.yml#L29["Passing Secrets"]
 
+== Playbook
+
 .Example - Need to update if forked
 . link:https://github.com/r3dact3d/fluffy-ee/blob/main/fluffy-builder.yml#L9["ee_registry_dest"] - Currently set to my personal link:https://hub.docker.com/repositories/r3dact3d["Docker Hub"]
 . link:https://github.com/r3dact3d/fluffy-ee/blob/main/fluffy-builder.yml#L10["ee_registry_username"] - Update to reflect username for the `ee_registry_dest` value
 . link:https://github.com/r3dact3d/fluffy-ee/blob/main/fluffy-builder.yml#L12["ee_ah_host"] - FQDN of Hub to get collections, I chose link:galaxy.ansible.com["Ansible Galaxy"] for ease of use
 
-.Ansible Execution Environment Builder
+== Status
 
+.Ansible Execution Environment Builder
 image::https://github.com/r3dact3d/fluffy-ee/actions/workflows/build-ee.yml/badge.svg[link="https://github.com/r3dact3d/fluffy-ee/actions/workflows/build-ee.yml"]
 
 image::docs/AutomatedAnsibleEEBuilder.png[Automated Execution Environment Image Builder]
