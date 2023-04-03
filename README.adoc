@@ -1,9 +1,35 @@
-.Purpose
+= Automated Execution-Environment Builder - Ansible Automation Platform 2
+
+NOTE: *fork* or *clone* repo so that you can use your own GitHub Secrets and workflow.
+
+== Content
+
+* <<Purpose, Purpose>>
+* <<Workflow, Workflow>>
+* <<Prereqs, Prereqs>>
+* <<Playbook, playbook>>
+* <<Status, Status>>
+
+== Purpose
+
 This repo contains everything needed to create a closed loop automated way to create Execution Environments for Ansible Automation Platform.
 
-The steps below describe what to update in the `fluffy-builder.yml` in order to successfuly create an execution environment.
+== Workflow
 
-This will create an image and push to remote image registry, ie. DockerHub
+A workflow will begin automaticaly when `fluff-builder.yml` has been updated and a PR has been merged to the `main` branch. 
+* Launch ubuntu-latest runner
+* Checkout main branch
+* Install Python dependencies
+** ansible-builder
+** ansible-runner
+* Install Ansible collections
+** awx.awx
+** link:https://github.com/redhat-cop/ee_utilities/tree/devel/roles/ee_builder[infra.ee_utilities]
+* Runs `fluffy-builder.yml` with *EE_REGISTRY_PASSWORD* and *AH_TOKEN* GitHub Secrets being passed in as Extra Vars
+
+This will create an image and push to remote image registry, ie. DockerHub, Quay,  or Private Automation Hub
+
+The steps below describe what to update in the `fluffy-builder.yml` in order to successfuly create an execution environment.
 
 .Prerequisites
 * Update https://github.com/r3dact3d/fluffy-ee/settings/secrets/actions[GitHub Secrets]
