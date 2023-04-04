@@ -22,8 +22,6 @@ A workflow will begin automaticaly when `fluff-builder.yml` has been updated and
 * Launch ubuntu-latest runner
 * Checkout main branch
 * Install Python dependencies
-** ansible-builder
-** ansible-runner
 * Install Ansible collections
 ** awx.awx
 ** link:https://github.com/redhat-cop/ee_utilities/tree/devel/roles/ee_builder[infra.ee_utilities]
