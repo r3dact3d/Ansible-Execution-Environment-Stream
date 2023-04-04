@@ -25,7 +25,7 @@ A workflow will begin automaticaly when `fluff-builder.yml` has been updated and
 * Install Ansible collections
 ** awx.awx
 ** link:https://github.com/redhat-cop/ee_utilities/tree/devel/roles/ee_builder[infra.ee_utilities]
-* Runs `fluffy-builder.yml` with *EE_REGISTRY_PASSWORD* and *AH_TOKEN* GitHub Secrets being passed in as Extra Vars
+* Runs `ee_builder.yml` with *EE_REGISTRY_PASSWORD* and *AH_TOKEN* GitHub Secrets being passed in as Extra Vars
 
 This will create an image and push to remote image registry, ie. DockerHub, Quay,  or Private Automation Hub
 
@@ -41,12 +41,12 @@ NOTE: These secrets get passed during the GitHub Actions workflow.
 
 == Playbook
 
-The steps below describe what to update in the `fluffy-builder.yml` in order to successfuly create an execution environment.
+The steps below describe what to update in the `ee_builder.yml` in order to successfuly create an execution environment.
 
 .Example - Need to update if forked
-. link:https://github.com/r3dact3d/fluffy-ee/blob/main/fluffy-builder.yml#L9["ee_registry_dest"] - Currently set to my personal link:https://hub.docker.com/repositories/r3dact3d["Docker Hub"]
-. link:https://github.com/r3dact3d/fluffy-ee/blob/main/fluffy-builder.yml#L10["ee_registry_username"] - Update to reflect username for the `ee_registry_dest` value
-. link:https://github.com/r3dact3d/fluffy-ee/blob/main/fluffy-builder.yml#L12["ee_ah_host"] - FQDN of Hub to get collections, I chose link:galaxy.ansible.com["Ansible Galaxy"] for ease of use
+. link:https://github.com/r3dact3d/fluffy-ee/blob/main/ee_builder.yml#L9["ee_registry_dest"] - Currently set to my personal link:https://quay.io/repository/brthomps/eda_ee["Quay.io Repo"]
+. link:https://github.com/r3dact3d/fluffy-ee/blob/main/ee_builder.yml#L10["ee_registry_username"] - Update to reflect username for the `ee_registry_dest` value
+. link:https://github.com/r3dact3d/fluffy-ee/blob/main/ee_builder.yml#L12["ee_ah_host"] - FQDN of Hub to get collections, I chose link:galaxy.ansible.com["Ansible Galaxy"] for ease of use
 
 == Status
 
