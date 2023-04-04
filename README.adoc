@@ -7,7 +7,7 @@ NOTE: *fork* or *clone* repo so that you can use your own GitHub Secrets and wor
 * <<Purpose, Purpose>>
 * <<Workflow, Workflow>>
 * <<Prereqs, Prereqs>>
-* <<Playbook, playbook>>
+* <<Playbook, Playbook>>
 * <<Status, Status>>
 
 == Purpose
@@ -33,8 +33,6 @@ This will create an image and push to remote image registry, ie. DockerHub, Quay
 
 == Prereqs
 
-The steps below describe what to update in the `fluffy-builder.yml` in order to successfuly create an execution environment.
-
 .GitHub Secrets
 * Update https://github.com/r3dact3d/fluffy-ee/settings/secrets/actions[GitHub Secrets]
 ** AH_TOKEN - Galaxy or Automation Hub API Key (needs to provide creds for `ee_ah_host`)
@@ -44,6 +42,8 @@ NOTE: These secrets get passed during the GitHub Actions workflow.
   This method is easy for demo but maynot meet production requirements link:https://github.com/r3dact3d/fluffy-ee/blob/main/.github/workflows/build-ee.yml#L29["Passing Secrets"]
 
 == Playbook
+
+The steps below describe what to update in the `fluffy-builder.yml` in order to successfuly create an execution environment.
 
 .Example - Need to update if forked
 . link:https://github.com/r3dact3d/fluffy-ee/blob/main/fluffy-builder.yml#L9["ee_registry_dest"] - Currently set to my personal link:https://hub.docker.com/repositories/r3dact3d["Docker Hub"]
