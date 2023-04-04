@@ -53,4 +53,4 @@ The steps below describe what to update in the `ee_builder.yml` in order to succ
 .Ansible Execution Environment Builder
 image::https://github.com/r3dact3d/fluffy-ee/actions/workflows/build-ee.yml/badge.svg[link="https://github.com/r3dact3d/fluffy-ee/actions/workflows/build-ee.yml"]
 
-image::docs/AutomatedAnsibleEEBuilder.png[Automated Execution Environment Image Builder]
+image::docs/AutomatedAnsibleEEBuilder_v1.png[Automated Execution Environment Image Builder]
