@@ -4,7 +4,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'fluffy-builder.yml'
+      - 'ee_builder.yml'
   workflow_dispatch:
 
 jobs:
@@ -26,4 +26,4 @@ jobs:
       - name: Run ansible playbook
         run: |
           ansible-galaxy collection install -r collections/requirements.yml
-          ansible-playbook fluffy-builder.yml -e "ansible_python_interpreter=`which python3`" -e "ah_token=${{ secrets.AH_TOKEN }}" -e "ee_registry_password=${{ secrets.EE_REGISTRY_PASSWORD }}"
+          ansible-playbook ee_builder.yml -e "ansible_python_interpreter=`which python3`" -e "ah_token=${{ secrets.AH_TOKEN }}" -e "ee_registry_password=${{ secrets.EE_REGISTRY_PASSWORD }}"
