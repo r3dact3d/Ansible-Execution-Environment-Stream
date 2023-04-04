@@ -48,9 +48,10 @@
         executable: pip3
 
     - name: Install collection community.network
+      tags: always
       community.general.ansible_galaxy_install:
-      type: collection
-      name: infra.ee_utilities
+        type: collection
+        name: infra.ee_utilities
       
   roles:
     - infra.ee_utilities.ee_builder
