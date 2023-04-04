@@ -16,7 +16,7 @@ This repo contains everything needed to create a closed loop automated way to cr
 
 == Workflow
 
-A workflow will begin automaticaly when `fluff-builder.yml` has been updated and a PR has been merged to the `main` branch. 
+A workflow will begin automaticaly when `ee_builder.yml` has been updated and a PR has been merged to the `main` branch. 
 
 .Workflow Steps
 * Launch ubuntu-latest runner
