@@ -1,2 +1,0 @@
-ansible-builder
-ansible-runner
