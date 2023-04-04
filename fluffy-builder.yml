@@ -4,7 +4,6 @@
   gather_facts: false
   collections:
     - infra.ee_utilities
-    - community.general
     
   vars:
     ee_registry_dest: index.docker.io/r3dact3d
