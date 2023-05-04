@@ -18,7 +18,7 @@
         tag: 1.1.5
         base_image: quay.io/ansible/ansible-runner:latest
         builder_image: quay.io/ansible/ansible-builder:latest
-        bindep:
+#        bindep:
 #          - python38-requests [platform:centos-8 platform:rhel-8]
 #          - python38-pyyaml [platform:centos-8 platform:rhel-8]
         python:
