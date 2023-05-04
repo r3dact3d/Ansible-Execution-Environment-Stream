@@ -19,8 +19,8 @@
         base_image: quay.io/ansible/ansible-runner:latest
         builder_image: quay.io/ansible/ansible-builder:latest
         bindep:
-          - python38-requests [platform:centos-8 platform:rhel-8]
-          - python38-pyyaml [platform:centos-8 platform:rhel-8]
+#          - python38-requests [platform:centos-8 platform:rhel-8]
+#          - python38-pyyaml [platform:centos-8 platform:rhel-8]
         python:
           - pytz  # for schedule_rrule lookup plugin
           - python-dateutil>=2.7.0  # schedule_rrule
