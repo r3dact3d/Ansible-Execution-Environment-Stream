@@ -6,8 +6,8 @@
     - infra.ee_utilities
     
   vars:
-    ee_registry_dest: quay.io/brthomps 
-    ee_registry_username: brthomps
+    ee_registry_dest: index.docker.io/r3dact3d 
+    ee_registry_username: r3dact3d
     #ee_registry_password: 
     ee_ah_host: galaxy.ansible.com
     #ee_ah_token: 
@@ -15,7 +15,7 @@
     builder_dir: "."
     ee_list:
       - name: eda_ee
-        tag: 1.1.7
+        tag: 2.0
         base_image: quay.io/ansible/ansible-runner:latest
         builder_image: quay.io/ansible/ansible-builder:latest
         bindep:
