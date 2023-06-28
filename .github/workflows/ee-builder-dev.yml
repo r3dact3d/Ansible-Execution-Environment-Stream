@@ -2,7 +2,7 @@ name: 'Ansible Execution Environment Builder'
 on:
   push:
     branches:
-      - 'main'
+      - 'dev'
     paths:
       - 'ee_builder.yml'
   workflow_dispatch:
