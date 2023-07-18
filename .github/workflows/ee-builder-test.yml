@@ -1,4 +1,4 @@
-name: 'Ansible Execution Environment Builder'
+name: 'Ansible Test Image Builder'
 on:
   push:
     branches:
