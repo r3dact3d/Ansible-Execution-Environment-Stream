@@ -1,7 +1,7 @@
 ---
 - name: Playbook to create Execution Environment
   hosts: localhost
-  gather_facts: false  
+  gather_facts: false
   vars:
     # ee_registry_dest: index.docker.io/r3dact3d
     # ee_registry_username: r3dact3d
@@ -43,7 +43,7 @@
             - RUN cat /etc/os-release
           append_final:
             - RUN echo This is a post-install command!
-          
+
   # This pre-task section is provided because older environment or
   # environments like build pipelines may not have ansible-builder
   # pre-installed. This is a good place to install other dependencies
