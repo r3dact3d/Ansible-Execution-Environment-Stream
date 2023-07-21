@@ -11,7 +11,7 @@ jobs:
   Ansible:
     name: 'Ansible'
     runs-on: ubuntu-latest
-
+    environment: dev
     permissions:
       contents: read
       pull-requests: write
@@ -30,5 +30,6 @@ jobs:
             -e "ansible_python_interpreter=`which python3`" \
             -e "ee_registry_dest=${{ vars.EE_REGISTRY }}" \
             -e "ee_registry_username=${{ vars.EE_REGISTRY_USERNAME }}" \
-            -e "ah_token=${{ secrets.AH_TOKEN }}" \
-            -e "ee_registry_password=${{ secrets.EE_REGISTRY_PASSWORD }}"
+            -e "ee_registry_password=${{ secrets.EE_REGISTRY_PASSWORD }}" \
+            -e "ah_token=${{ secrets.AH_TOKEN }}"
+            
