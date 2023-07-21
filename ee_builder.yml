@@ -14,7 +14,7 @@
     builder_dir: "."
     ee_list:
       - name: eda_ee
-        tag: 2.1.4
+        tag: 2.1.4.1
         images:
           base_image:
             name: quay.io/ansible/ansible-runner:latest
