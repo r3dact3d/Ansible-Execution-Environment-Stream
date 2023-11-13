@@ -18,6 +18,10 @@
         base_image: quay.io/ansible/ansible-runner:latest
         builder_image: quay.io/ansible/ansible-builder:latest
         dependencies:
+          galaxy:
+            collections:
+              - name: awx.awx
+                version: 21.9.0
           ansible_runner:
             package_pip: ansible-runner
         build_steps:
