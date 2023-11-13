@@ -18,7 +18,7 @@
         base_image: quay.io/ansible/ansible-runner:latest
         builder_image: quay.io/ansible/ansible-builder:latest
         dependencies:
-          galaxy: ee_requirements.yml
+          galaxy: collections/ee_requirements.yml
           ansible_runner:
             package_pip: ansible-runner
         build_steps:
