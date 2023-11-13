@@ -20,17 +20,6 @@
         dependencies:
           ansible_runner:
             package_pip: ansible-runner
-          system:
-            - python38-requests [platform:centos-8 platform:rhel-8]
-            - python38-pyyaml [platform:centos-8 platform:rhel-8]
-          python:
-            - pytz  # for schedule_rrule lookup plugin
-            - python-dateutil>=2.7.0  # schedule_rrule
-            - awxkit  # For import and export modules
-          galaxy:
-            collections:
-              - name: ansible.netcommon
-
         build_steps:
           prepend_final:
             - RUN whoami
