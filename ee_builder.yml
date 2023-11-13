@@ -13,8 +13,8 @@
     ee_builder_dir_clean: false
     builder_dir: "."
     ee_list:
-      - name: eda_ee
-        tag: 2.1.4.3
+      - name: netcommon_ee
+        tag: 1
         images:
           base_image:
             name: quay.io/ansible/ansible-runner:latest
@@ -34,9 +34,7 @@
               - name: awx.awx
                 type: url
                 source: https://galaxy.ansible.com/download/awx-awx-21.11.0.tar.gz
-              - name: ansible.eda
-                type: url
-                source: https://galaxy.ansible.com/download/ansible-eda-1.3.4.tar.gz
+              - name: ansible.netcommon
         build_steps:
           prepend_final:
             - RUN whoami
