@@ -18,10 +18,7 @@
         base_image: quay.io/ansible/ansible-runner:latest
         builder_image: quay.io/ansible/ansible-builder:latest
         dependencies:
-          galaxy:
-            collections:
-              - name: ansible.netcommon
-                source: https://galaxy.ansible.com/api/
+          galaxy: ee_requirements.yml
           ansible_runner:
             package_pip: ansible-runner
         build_steps:
