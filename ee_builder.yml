@@ -14,14 +14,14 @@
     builder_dir: "."
     ee_list:
       - name: netcommon_ee
-        tag: 1.1
+        tag: 1.1.1
         base_image: quay.io/ansible/ansible-runner:latest
         builder_image: quay.io/ansible/ansible-builder:latest
         dependencies:
           galaxy:
             collections:
               - name: ansible.netcommon
-                source: https://galaxy.ansible.com
+                source: https://galaxy.ansible.com/api/
           ansible_runner:
             package_pip: ansible-runner
         build_steps:
