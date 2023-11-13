@@ -20,6 +20,7 @@
         dependencies:
           galaxy:
             collections:
+              - awx.awx
               - ansible.netcommon
           ansible_runner:
             package_pip: ansible-runner
