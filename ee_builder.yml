@@ -19,9 +19,6 @@
         base_image: quay.io/ansible/ansible-runner:latest
         builder_image: quay.io/ansible/ansible-builder:latest
         dependencies:
-          galaxy: 
-            collections:
-              - ansible.netcommon
           ansible_runner:
             package_pip: ansible-runner
         options:
