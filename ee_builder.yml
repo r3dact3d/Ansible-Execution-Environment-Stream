@@ -21,8 +21,6 @@
         dependencies:
           ansible_runner:
             package_pip: ansible-runner
-        options:
-          package_manager_path: /usr/bin/microdnf
         build_steps:
           prepend_final:
             - RUN whoami
