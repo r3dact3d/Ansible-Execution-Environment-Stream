@@ -12,15 +12,20 @@
     # ee_ah_token:
     ee_builder_dir_clean: false
     builder_dir: "."
+    ee_version: 3
     ee_list:
       - name: netcommon_ee
         tag: 1.1.1
         base_image: quay.io/ansible/ansible-runner:latest
         builder_image: quay.io/ansible/ansible-builder:latest
         dependencies:
-          galaxy: requirements.yml
+          galaxy: 
+            collections:
+              - ansible-netcommon
           ansible_runner:
             package_pip: ansible-runner
+        options:
+          package_manager_path: /usr/bin/microdnf
         build_steps:
           prepend_final:
             - RUN whoami
