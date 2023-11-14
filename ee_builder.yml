@@ -21,7 +21,7 @@
         dependencies:
           galaxy: 
             collections:
-              - ansible-netcommon
+              - ansible.netcommon
           ansible_runner:
             package_pip: ansible-runner
         options:
