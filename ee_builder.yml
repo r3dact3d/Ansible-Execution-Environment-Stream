@@ -15,7 +15,7 @@
     ee_version: 3
     ee_list:
       - name: netcommon_ee
-        tag: 1.1.1
+        tag: 2
         base_image: quay.io/ansible/ansible-runner:latest
         builder_image: quay.io/ansible/ansible-builder:latest
         dependencies:
