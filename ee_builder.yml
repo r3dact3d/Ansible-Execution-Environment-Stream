@@ -16,8 +16,7 @@
     ee_list:
       - name: ee_builder
         tag: 3-28-2024
-        images:
-          base_image: quay.io/ansible/ansible-runner:latest
+        base_image: quay.io/ansible/ansible-runner:latest
         dependencies:
           ansible_core:
             package_pip: ansible-core==2.15
