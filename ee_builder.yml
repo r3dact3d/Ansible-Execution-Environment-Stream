@@ -24,7 +24,7 @@
             package_pip: ansible-runner
           system:
             - python-requests
-            - python-pyyam
+            - python-pyyaml
           python:
             - pytz
             - python-dateutil
