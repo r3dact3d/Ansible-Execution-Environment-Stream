@@ -31,11 +31,7 @@
             - awxkit
           galaxy: 
             collections:
-              - name: awx.awx
-                version: 22.4.0
-              - infra.controller_configuration
-              - ansible.controller
-              - infra.ah_configuration
+              - awx.awx
               - containers.podman
               - community.general
           
