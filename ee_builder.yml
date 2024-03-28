@@ -32,8 +32,11 @@
           galaxy: 
             collections:
               - name: awx.awx
+                source: https://galaxy.ansible.com
               - name: containers.podman
+                source: https://galaxy.ansible.com
               - name: community.general
+                source: https://galaxy.ansible.com
           
         build_steps:
           prepend_final:
