@@ -14,11 +14,15 @@
     builder_dir: "."
     ee_version: 3
     ee_list:
-      - name: netcommon_ee
-        tag: 2
+      - name: ee_builder
+        tag: 3-28-2024
         base_image: quay.io/ansible/ansible-runner:latest
         builder_image: quay.io/ansible/ansible-builder:latest
         dependencies:
+          galaxy: 
+            collections:
+              - name: containers.podman
+              - name: community.general
           ansible_runner:
             package_pip: ansible-runner
         build_steps:
@@ -38,11 +42,7 @@
       ansible.builtin.pip:
         name: ansible-builder
         executable: pip3
-    - name: Install containers.podman collection
-      tags: always
-      community.general.ansible_galaxy_install:
-        type: collection
-        name: containers.podman
+
 
   roles:
     - infra.ee_utilities.ee_builder
