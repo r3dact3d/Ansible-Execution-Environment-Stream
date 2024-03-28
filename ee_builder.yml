@@ -31,9 +31,9 @@
             - awxkit
           galaxy: 
             collections:
-              - awx.awx
-              - containers.podman
-              - community.general
+              - name: awx.awx
+              - name: containers.podman
+              - name: community.general
           
         build_steps:
           prepend_final:
