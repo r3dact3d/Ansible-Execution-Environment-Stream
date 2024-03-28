@@ -38,6 +38,10 @@
       ansible.builtin.pip:
         name: ansible-builder
         executable: pip3
+    - name: Install containers.podman collection
+      tags: always
+      ansible.builtin.ansible_galaxy_collection:
+        name: containers.podman
 
   roles:
     - infra.ee_utilities.ee_builder
