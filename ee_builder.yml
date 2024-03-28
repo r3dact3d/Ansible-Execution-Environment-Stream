@@ -40,7 +40,8 @@
         executable: pip3
     - name: Install containers.podman collection
       tags: always
-      ansible.builtin.ansible_galaxy_collection:
+      community.general.ansible_galaxy_install:
+        type: collection
         name: containers.podman
 
   roles:
