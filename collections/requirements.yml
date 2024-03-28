@@ -3,3 +3,5 @@ collections:
   - name: awx.awx
   - name: infra.ee_utilities
   - name: infra.ah_configuration
+  - name: containers.podman
+  - name: community.general
