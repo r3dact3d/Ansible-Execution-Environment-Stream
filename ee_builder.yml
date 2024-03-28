@@ -16,15 +16,30 @@
     ee_list:
       - name: ee_builder
         tag: 3-28-2024
-        base_image: quay.io/ansible/ansible-runner:latest
-        builder_image: quay.io/ansible/ansible-builder:latest
+        images:
+          base_image: quay.io/ansible/ansible-runner:latest
         dependencies:
-          galaxy: 
-            collections:
-              - name: containers.podman
-              - name: community.general
+          ansible_core:
+            package_pip: ansible-core==2.15
           ansible_runner:
             package_pip: ansible-runner
+          system:
+            - python-requests
+            - python-pyyam
+          python:
+            - pytz
+            - python-dateutil
+            - awxkit
+          galaxy: 
+            collections:
+              - name: awx.awx
+                version: 22.4.0
+              - infra.controller_configuration
+              - ansible.controller
+              - infra.ah_configuration
+              - containers.podman
+              - community.general
+          
         build_steps:
           prepend_final:
             - RUN whoami
