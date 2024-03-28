@@ -19,7 +19,7 @@
         base_image: quay.io/ansible/ansible-runner:latest
         dependencies:
           ansible_core:
-            package_pip: ansible-core==2.15
+            package_pip: ansible-core==2.13.13
           ansible_runner:
             package_pip: ansible-runner
           system:
