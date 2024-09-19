@@ -14,29 +14,34 @@
     builder_dir: "."
     ee_version: 3
     ee_list:
-      - name: ee_builder
-        tag: 3-28-2024
+      - name: infoblox-ee
+        tag: 1.0.0
         base_image: quay.io/ansible/ansible-runner:latest
         dependencies:
           ansible_core:
-            package_pip: ansible-core==2.13.13
+            package_pip: ansible-core==2.14.2
           ansible_runner:
-            package_pip: ansible-runner
+            package_pip: ansible-runner==2.3.1
+          python_interpreter:
+            package_system: "python310"
+            python_path: "/usr/bin/python3.10"
           galaxy: 
             collections:
               - name: awx.awx
                 source: https://galaxy.ansible.com
-              - name: containers.podman
+              - name: ansible.utils
+                source: https://galaxy.ansible.com
+              - name: ansible.posix
                 source: https://galaxy.ansible.com
               - name: community.general
+                source: https://galaxy.ansible.com
+              - name: infoblox.nios_modules
                 source: https://galaxy.ansible.com
           
         build_steps:
           prepend_final:
-            - RUN whoami
-            - RUN cat /etc/os-release
-          append_final:
-            - RUN echo This is a post-install command!
+            - RUN pip3 install --upgrade pip setuptools
+            - RUN pip3 install infoblox-client
 
   # This pre-task section is provided because older environment or
   # environments like build pipelines may not have ansible-builder
