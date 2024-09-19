@@ -47,12 +47,12 @@
   # environments like build pipelines may not have ansible-builder
   # pre-installed. This is a good place to install other dependencies
   # that need to be in the build pipeline its self not in the final artifact.
-  pre_tasks:
-    - name: Install ansible-builder
-      tags: always
-      ansible.builtin.pip:
-        name: ansible-builder
-        executable: pip3
+#  pre_tasks:
+#    - name: Install ansible-builder
+#      tags: always
+#      ansible.builtin.pip:
+#        name: ansible-builder
+#        executable: pip3
 
 
   roles:
