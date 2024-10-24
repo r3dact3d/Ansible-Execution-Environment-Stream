@@ -14,7 +14,7 @@
     builder_dir: "."
     ee_version: 3
     ee_list:
-      - name: infoblox-ee
+      - name: terraform-ee
         tag: 1.0.0
         base_image: quay.io/ansible/ansible-runner:latest
         dependencies:
@@ -25,23 +25,18 @@
           python_interpreter:
             package_system: "python310"
             python_path: "/usr/bin/python3.10"
+          system: 
+          - terraform 
           galaxy: 
             collections:
-              - name: awx.awx
-                source: https://galaxy.ansible.com
-              - name: ansible.utils
-                source: https://galaxy.ansible.com
-              - name: ansible.posix
-                source: https://galaxy.ansible.com
               - name: community.general
                 source: https://galaxy.ansible.com
-              - name: infoblox.nios_modules
+              - name: cloud.terraform
                 source: https://galaxy.ansible.com
           
         build_steps:
           prepend_final:
             - RUN pip3 install --upgrade pip setuptools
-            - RUN pip3 install infoblox-client
 
   # This pre-task section is provided because older environment or
   # environments like build pipelines may not have ansible-builder
