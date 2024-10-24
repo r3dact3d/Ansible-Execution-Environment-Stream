@@ -16,12 +16,12 @@
     ee_list:
       - name: terraform-ee
         tag: 1.0.0
-        base_image: quay.io/ansible/ansible-runner:latest
+        base_image: quay.io/brthomps/brady-ee-rhel8:latest
         dependencies:
           ansible_core:
-            package_pip: ansible-core==2.14.2
+            package_pip: ansible-core==2.15
           ansible_runner:
-            package_pip: ansible-runner==2.3.1
+            package_pip: ansible-builder==3.0.0
           python_interpreter:
             package_system: "python310"
             python_path: "/usr/bin/python3.10"
