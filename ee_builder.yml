@@ -25,15 +25,14 @@
           python_interpreter:
             package_system: "python310"
             python_path: "/usr/bin/python3.10"
-          system: 
-          - terraform 
-          galaxy: 
+          system:
+            - terraform
+          galaxy:
             collections:
               - name: community.general
                 source: https://galaxy.ansible.com
               - name: cloud.terraform
                 source: https://galaxy.ansible.com
-          
         build_steps:
           prepend_final:
             - RUN pip3 install --upgrade pip setuptools
