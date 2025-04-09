@@ -4,6 +4,7 @@
   gather_facts: false
   vars:
     ee_verbosity: 3
+    ee_container_runtime: docker
     ee_registry_dest: index.docker.io/r3dact3d
     ee_registry_username: r3dact3d
     # ee_registry_password:
@@ -33,8 +34,8 @@
                 source: https://galaxy.ansible.com
               - name: awx.awx
                 source: https://galaxy.ansible.com
-        options:
-          package_manager_path: /usr/bin/microdnf
+        #options:
+        #  package_manager_path: /usr/bin/microdnf
 
   # This pre-task section is provided because older environment or
   # environments like build pipelines may not have ansible-builder
