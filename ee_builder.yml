@@ -3,8 +3,8 @@
   hosts: localhost
   gather_facts: false
   vars:
-    # ee_registry_dest: index.docker.io/r3dact3d
-    # ee_registry_username: r3dact3d
+    ee_registry_dest: index.docker.io/r3dact3d
+    ee_registry_username: r3dact3d
     # ee_registry_password:
     # ee_registry_dest: quay.io/brthomps
     # ee_registry_username: brthomps
@@ -14,8 +14,8 @@
     builder_dir: "."
     ee_version: 3
     ee_list:
-      - name: aap-config-ee
-        tag: 1.0.0
+      - name: ee-builder
+        tag: 1.0.1
         base_image: docker.io/redhat/ubi9:latest
         dependencies:
           ansible_core:
