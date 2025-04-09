@@ -25,7 +25,7 @@
             package_pip: ansible-runner
           system:
             - podman
-            - ansible-builder
+            - ansible
           galaxy:
             collections:
               - name: infra.aap_configuration
@@ -36,21 +36,20 @@
                 source: https://galaxy.ansible.com
               - name: awx.awx
                 source: https://galaxy.ansible.com
-        # options:
-        #  package_manager_path: /usr/bin/microdnf
+        options:
+          package_manager_path: /usr/bin/microdnf
 
   # This pre-task section is provided because older environment or
   # environments like build pipelines may not have ansible-builder
   # pre-installed. This is a good place to install other dependencies
   # that need to be in the build pipeline its self not in the final artifact.
-  pre_tasks:
-    - name: Install ansible-builder
-      tags: always
-      ansible.builtin.pip:
-        name:
-          - ansible-builder
-          - podman
-        executable: pip3
+#  pre_tasks:
+#    - name: Install ansible-builder
+#      tags: always
+#      ansible.builtin.pip:
+#        name:
+#          - ansible-builder
+#        executable: pip3
 
 
   roles:
