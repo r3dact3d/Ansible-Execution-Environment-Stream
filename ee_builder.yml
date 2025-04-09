@@ -36,8 +36,8 @@
                 source: https://galaxy.ansible.com
               - name: awx.awx
                 source: https://galaxy.ansible.com
-        options:
-          package_manager_path: /usr/bin/microdnf
+#        options:
+#          package_manager_path: /usr/bin/microdnf
 
   # This pre-task section is provided because older environment or
   # environments like build pipelines may not have ansible-builder
