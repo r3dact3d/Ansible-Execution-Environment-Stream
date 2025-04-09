@@ -25,7 +25,6 @@
             package_pip: ansible-runner
           system:
             - podman
-            - ansible
           galaxy:
             collections:
               - name: infra.aap_configuration
