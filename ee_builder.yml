@@ -24,10 +24,9 @@
             package_pip: ansible-core
           ansible_runner:
             package_pip: ansible-runner
-          ansible_builder:
-            package_pip: ansible-builder
-          podman:
-            package_pip: podman
+          system: 
+            - podman
+            - ansible-builder
           galaxy:
             collections:
               - name: infra.aap_configuration
