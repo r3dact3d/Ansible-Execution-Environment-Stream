@@ -34,9 +34,6 @@
                 source: https://galaxy.ansible.com
         options:
           package_manager_path: /usr/bin/microdnf
-        build_steps:
-          append_base:
-            - RUN microdnf install podman -y
 
   # This pre-task section is provided because older environment or
   # environments like build pipelines may not have ansible-builder
@@ -46,7 +43,9 @@
     - name: Install ansible-builder
       tags: always
       ansible.builtin.pip:
-        name: ansible-builder
+        name: 
+          - ansible-builder
+          - podman
         executable: pip3
 
 
