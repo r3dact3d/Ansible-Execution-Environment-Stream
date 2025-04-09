@@ -4,7 +4,7 @@
   gather_facts: false
   vars:
     ee_verbosity: 3
-    ee_container_runtime: docker
+    #ee_container_runtime: docker
     ee_registry_dest: index.docker.io/r3dact3d
     ee_registry_username: r3dact3d
     # ee_registry_password:
