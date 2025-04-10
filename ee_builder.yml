@@ -12,7 +12,7 @@
     ee_version: 3
     ee_list:
       - name: ubi9-infra-ee-utilities-builder
-        tag: 1.0.9
+        tag: 1.1
         base_image: docker.io/redhat/ubi9:latest
         dependencies:
           ansible_core:
@@ -21,15 +21,13 @@
             package_pip: ansible-runner
           system:
             - podman
-            - podman-docker
+
           python:
             - ansible-builder
             - ansible-navigator
           galaxy:
             collections:
               - infra.aap_configuration
-              - ansible.hub
-              - ansible.eda
 
   roles:
     - infra.ee_utilities.ee_builder
