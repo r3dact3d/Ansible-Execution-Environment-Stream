@@ -24,10 +24,10 @@
             - podman
           python:
             - ansible-builder
+            - ansible-navigator
           galaxy:
             collections:
-              - name: infra.aap_configuration
-                source: https://galaxy.ansible.com
+              - infra.aap_configuration
 
         build_steps:
           prepend_galaxy:
