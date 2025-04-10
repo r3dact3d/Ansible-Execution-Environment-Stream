@@ -30,10 +30,6 @@
           galaxy:
             collections:
               - name: infra.aap_configuration
-              - name: ansible.platform
-              - name: ansible.hub
-              - name: ansible.eda
-              - name: ansible.controller
         build_items:
           - ./ansible.cfg
         build_files:
