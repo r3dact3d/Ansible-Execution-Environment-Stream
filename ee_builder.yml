@@ -30,6 +30,7 @@
           galaxy:
             collections:
               - name: infra.aap_configuration
+                source: https://galaxy.ansible.com
         build_items:
           - ./ansible.cfg
         build_files:
