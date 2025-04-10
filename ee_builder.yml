@@ -29,14 +29,20 @@
             collections:
               - name: infra.aap_configuration
                 source: https://galaxy.ansible.com
+              - name: ansible.platform
+                source: certified
               - name: ansible.hub
-                source: https://galaxy.ansible.com
+                source: certified
               - name: ansible.eda
-                source: https://galaxy.ansible.com
-              - name: awx.awx
-                source: https://galaxy.ansible.com
-#        options:
-#          package_manager_path: /usr/bin/microdnf
+                source: certified
+              - name: ansible.controller
+                source: certified
+        build_files:
+          - src: files/ansible.cfg
+            dest: configs
+        build_steps:
+          prepend_galaxy:
+            - COPY _build/configs/ansible.cfg /etc/ansible/ansible.cfg
 
   # This pre-task section is provided because older environment or
   # environments like build pipelines may not have ansible-builder
