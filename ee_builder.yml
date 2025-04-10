@@ -39,25 +39,14 @@
 #                source: certified
 #              - name: ansible.controller
 #                source: certified
+        build_items:
+          - ansible.cfg
         build_files:
-          - src: files/ansible.cfg
+          - src: ./ansible.cfg
             dest: configs
         build_steps:
           prepend_galaxy:
-            - COPY _build/configs/ansible.cfg /etc/ansible/ansible.cfg
-
-  # This pre-task section is provided because older environment or
-  # environments like build pipelines may not have ansible-builder
-  # pre-installed. This is a good place to install other dependencies
-  # that need to be in the build pipeline its self not in the final artifact.
-#  pre_tasks:
-#    - name: Install ansible-builder
-#      tags: always
-#      ansible.builtin.pip:
-#        name:
-#          - ansible-builder
-#        executable: pip3
-
+            - ADD _build/configs/ansible.cfg /etc/ansible/ansible.cfg
 
   roles:
     - infra.ee_utilities.ee_builder
