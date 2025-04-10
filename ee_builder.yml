@@ -13,7 +13,7 @@
     ee_version: 3
     ee_list:
       - name: ee-builder
-        tag: 1.0.7
+        tag: "{{ ansible_date_time.iso8601_basic_short }}"
         base_image: docker.io/redhat/ubi9:latest
         dependencies:
           ansible_core:
@@ -30,7 +30,6 @@
               - infra.aap_configuration
               - ansible.hub
               - ansible.eda
-              - ansible.controller
 
         build_steps:
           prepend_galaxy:
