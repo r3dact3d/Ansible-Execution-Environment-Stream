@@ -29,14 +29,14 @@
             collections:
               - name: infra.aap_configuration
                 source: https://galaxy.ansible.com
-              - name: ansible.platform
-                source: certified
-              - name: ansible.hub
-                source: certified
-              - name: ansible.eda
-                source: certified
-              - name: ansible.controller
-                source: certified
+#              - name: ansible.platform
+#                source: certified
+#              - name: ansible.hub
+#                source: certified
+#              - name: ansible.eda
+#                source: certified
+#              - name: ansible.controller
+#                source: certified
         build_files:
           - src: ansible.cfg
             dest: configs
