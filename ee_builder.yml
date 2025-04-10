@@ -16,7 +16,7 @@
     ee_version: 3
     ee_list:
       - name: ee-builder
-        tag: 1.0.3
+        tag: 1.0.4
         base_image: docker.io/redhat/ubi9:latest
         dependencies:
           ansible_core:
@@ -30,17 +30,10 @@
           galaxy:
             collections:
               - name: infra.aap_configuration
-                source: https://galaxy.ansible.com
-#              - name: ansible.platform
-#                source: certified
-#              - name: ansible.hub
-#                source: certified
-#              - name: ansible.eda
-#                source: certified
-#              - name: ansible.controller
-#                source: certified
-        build_items:
-          - ansible.cfg
+              - name: ansible.platform
+              - name: ansible.hub
+              - name: ansible.eda
+              - name: ansible.controller
         build_files:
           - src: ./ansible.cfg
             dest: configs
