@@ -16,7 +16,7 @@
     ee_version: 3
     ee_list:
       - name: ee-builder
-        tag: 1.0.4
+        tag: 1.0.5
         base_image: docker.io/redhat/ubi9:latest
         dependencies:
           ansible_core:
@@ -34,6 +34,8 @@
               - name: ansible.hub
               - name: ansible.eda
               - name: ansible.controller
+        build_items:
+          - ./ansible.cfg
         build_files:
           - src: ./ansible.cfg
             dest: configs
