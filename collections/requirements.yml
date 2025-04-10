@@ -1,7 +1,10 @@
 ---
 collections:
   - name: awx.awx
+    source: https://galaxy.ansible.com
   - name: infra.ee_utilities
   - name: infra.ah_configuration
   - name: containers.podman
+    source: https://galaxy.ansible.com
   - name: community.general
+    source: https://galaxy.ansible.com
