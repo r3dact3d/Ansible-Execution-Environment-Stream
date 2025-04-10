@@ -30,7 +30,6 @@
               - infra.aap_configuration
               - ansible.hub
               - ansible.eda
-              - ansible.controller
 
   roles:
     - infra.ee_utilities.ee_builder
