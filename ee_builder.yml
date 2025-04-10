@@ -34,7 +34,7 @@
               - name: ansible.eda
               - name: ansible.controller
         build_files:
-          - src: files/ansible.cfg
+          - src: ansible.cfg
             dest: configs
         build_steps:
           prepend_galaxy:
