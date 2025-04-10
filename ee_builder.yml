@@ -28,7 +28,6 @@
           galaxy:
             collections:
               - infra.aap_configuration
-              - ansible.platform
               - ansible.hub
               - ansible.eda
               - ansible.controller
