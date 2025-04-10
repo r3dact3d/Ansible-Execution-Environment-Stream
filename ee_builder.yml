@@ -34,6 +34,8 @@
               - name: ansible.hub
               - name: ansible.eda
               - name: ansible.controller
+        build_items:
+          - ./ansible.cfg
         build_files:
           - src: ./ansible.cfg
             dest: configs
