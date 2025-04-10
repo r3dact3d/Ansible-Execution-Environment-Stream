@@ -40,7 +40,7 @@
 #              - name: ansible.controller
 #                source: certified
         build_files:
-          - src: ansible.cfg
+          - src: files/ansible.cfg
             dest: configs
         build_steps:
           prepend_galaxy:
