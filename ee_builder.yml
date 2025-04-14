@@ -13,7 +13,7 @@
     ee_list:
       - name: ubi9-infra-ee-utilities-builder
         tag: 1.1
-        base_image: registry.access.redhat.com/ubi9/ubi9:latest
+        base_image: registry.access.redhat.com/ubi9/ubi-minimal:9.5-1742914212
         dependencies:
           ansible_core:
             package_pip: ansible-core
