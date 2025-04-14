@@ -4,6 +4,7 @@
   gather_facts: false
   vars:
     ee_verbosity: 3
+    ee_pull_collections_from_hub: false
     ee_ah_host: galaxy.ansible.com
     ee_registry_dest: docker.io/r3dact3d
     ee_registry_username: r3dact3d
@@ -27,6 +28,14 @@
           galaxy:
             collections:
               - infra.aap_configuration
+        build_steps:
+          prepend_galaxy:
+            - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub_certified,upstream_galaxy
+            - ENV ANSIBLE_GALAXY_SERVER_UPSTREAM_GALAXY_URL=https://galaxy.ansible.com/
+            - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_URL=https://console.redhat.com/api/automation-hub/content/validated/
+#            - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_URL=https://cloud.redhat.com/api/automation-hub/
+            - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_AUTH_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
+            - ARG ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_TOKEN
 
   roles:
     - infra.ee_utilities.ee_builder
