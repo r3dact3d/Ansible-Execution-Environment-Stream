@@ -5,7 +5,7 @@
   vars:
     ee_verbosity: 3
     ee_ah_host: galaxy.ansible.com
-    ee_registry_dest: index.docker.io/r3dact3d
+    ee_registry_dest: docker.io/r3dact3d
     ee_registry_username: r3dact3d
     ee_builder_dir_clean: true
     builder_dir: "."
@@ -13,7 +13,7 @@
     ee_list:
       - name: ubi9-infra-ee-utilities-builder
         tag: 1.1
-        base_image: docker.io/redhat/ubi9:latest
+        base_image: registry.access.redhat.com/ubi9/ubi9:latest
         dependencies:
           ansible_core:
             package_pip: ansible-core
@@ -21,7 +21,6 @@
             package_pip: ansible-runner
           system:
             - podman
-
           python:
             - ansible-builder
             - ansible-navigator
