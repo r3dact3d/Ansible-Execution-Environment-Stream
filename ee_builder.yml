@@ -8,12 +8,12 @@
     ee_registry_dest: docker.io/r3dact3d
     ee_registry_username: r3dact3d
     ee_builder_dir_clean: true
-    builder_dir: "."
     ee_version: 3
     ee_list:
       - name: ubi9-infra-ee-utilities-builder
         tag: 1.1
-        base_image: registry.access.redhat.com/ubi9/ubi-minimal:9.5-1742914212
+        #base_image: registry.access.redhat.com/ubi9/ubi-minimal:9.5-1742914212
+        base_image: docker.io/redhat/ubi9:latest
         dependencies:
           ansible_core:
             package_pip: ansible-core
