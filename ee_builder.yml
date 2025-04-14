@@ -1,7 +1,7 @@
 ---
 - name: Playbook to create Execution Environment
   hosts: localhost
-  gather_facts: false
+  gather_facts: true
   vars:
     ee_verbosity: 3
     ee_pull_collections_from_hub: false
@@ -12,7 +12,7 @@
     ee_version: 3
     ee_list:
       - name: ubi9-infra-ee-utilities-builder
-        tag: 1.1
+        tag: 1.1.0
         #base_image: registry.access.redhat.com/ubi9/ubi-minimal:9.5-1742914212
         base_image: docker.io/redhat/ubi9:latest
         dependencies:
