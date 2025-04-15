@@ -6,16 +6,15 @@
     ee_aap_version: 2.5
     ee_ah_host: galaxy.ansible.com
     ee_list:
-      - name: ee_test_podman
-        image: quay.io/podman/stable:latest
+      - name: ee_base_rhel9
         dependencies:
           ansible_core:
-            package_pip: ansible-core==2.16
+            package_pip: ansible-core
           ansible_runner:
-            package_pip: ansible-runner==2.3
+            package_pip: ansible-runner
           system:
             - podman
-            - fuse-overlayfs
+            - python-pyyaml
           python:
             - ansible-navigator
             - pytz
@@ -25,14 +24,14 @@
             collections:
               - name: awx.awx
                 version: 22.4.0
-          exclude:
-            system:
-              - container-selinux
         options:
           container_init:
             package_pip: dumb-init>=1.2.5
             entrypoint: '["dumb-init"]'
             cmd: '["bash"]'
+          package_manager_path: /usr/bin/microdnf
+#          workdir: /myworkdir
+#          user: root
           tags:
             - ee_development:latest
         build_steps:
