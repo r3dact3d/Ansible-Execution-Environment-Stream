@@ -7,7 +7,7 @@
     ee_ah_host: galaxy.ansible.com
     ee_list:
       - name: ee_test_podman
-        image: quay.io/podman/stable:latest
+        image: registry.fedoraproject.org/fedora:latest
         dependencies:
           ansible_core:
             package_pip: ansible-core==2.16
@@ -15,7 +15,6 @@
             package_pip: ansible-runner
           system:
             - podman
-            - fuse-overlayfs
             - ansible-builder
           python:
             - ansible-navigator
@@ -26,7 +25,6 @@
             collections:
               - name: awx.awx
                 version: 22.4.0
-              - infra.aap_configuration
           exclude:
             system:
               - container-selinux
@@ -34,14 +32,6 @@
           tags:
             - ee_development:latest
         build_steps:
-          prepend_base:
-            - RUN dnf -y update; yum -y reinstall shadow-utils
-            - RUN useradd podman; \
-              echo podman:10000:5000 > /etc/subuid; \
-              echo podman:10000:5000 > /etc/subgid
-            - VOLUME /var/lib/containers
-            - VOLUME /home/podman/.local/share/containers
-
           prepend_galaxy:
             - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub_certified,upstream_galaxy
             - ENV ANSIBLE_GALAXY_SERVER_UPSTREAM_GALAXY_URL=https://galaxy.ansible.com/
