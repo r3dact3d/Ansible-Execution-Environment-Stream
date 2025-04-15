@@ -11,7 +11,7 @@
     ee_builder_dir_clean: true
     ee_list:
       - name: ubi9-dellemc-os10-ee
-        tag: 1.1
+        tag: 1.1.0
         #base_image: registry.access.redhat.com/ubi9/ubi-minimal:9.5-1742914212
         base_image: docker.io/redhat/ubi9:latest
         dependencies:
