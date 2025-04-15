@@ -37,7 +37,15 @@ This will create an image and push to remote image registry, ie. DockerHub, Quay
 ** EE_REGISTRY_PASSWORD - DockerHub or Image Registry Password (needs to provide creds for `ee_registry_dest`)
 
 NOTE: These secrets get passed during the GitHub Actions workflow.
-  This method is easy for demo but maynot meet production requirements link:https://github.com/r3dact3d/fluffy-ee/blob/main/.github/workflows/build-ee.yml#L29["Passing Secrets"]
+  This method is easy for demo but maynot meet production requirements link:https://github.com/r3dact3d/fluffy-ee/blob/main/.github/workflows/ee-builder-dev.yml#L29["Passing Secrets"]
+
+  .GitHub Environment Variables
+* Update https://github.com/r3dact3d/Ansible-Execution-Environment-Stream/settings/environments[GitHub Environment Variables]
+** EE_REGISTRY - Container Image Registry to push execution environment
+** EE_REGISTRY_USERNAME - DockerHub or Image Registry Username (needs to provide creds for `EE_REGISTRY`)
+
+NOTE: These variables get passed during the GitHub Actions workflow.
+  This method is easy for demo but may not meet production requirements link:https://github.com/r3dact3d/fluffy-ee/blob/main/.github/workflows/ee-builder-dev.yml#L29["Passing Variables"]
 
 == Playbook
 
