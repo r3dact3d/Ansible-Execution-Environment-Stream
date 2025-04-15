@@ -10,8 +10,8 @@
     ee_registry_username: r3dact3d
     ee_builder_dir_clean: true
     ee_list:
-      - name: ubi9-infra-ee-utilities-builder
-        tag: 1.1.0
+      - name: ubi9-dellemc-os10-ee
+        tag: 1.1
         #base_image: registry.access.redhat.com/ubi9/ubi-minimal:9.5-1742914212
         base_image: docker.io/redhat/ubi9:latest
         dependencies:
@@ -22,11 +22,9 @@
           system:
             - podman
           python:
-            - ansible-builder
             - ansible-navigator
           galaxy:
             collections:
-              - infra.aap_configuration
               - dellemc.os10
         build_steps:
           prepend_galaxy:
