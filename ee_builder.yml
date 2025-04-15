@@ -44,9 +44,9 @@
           prepend_final:
             - RUN dnf -y update; yum -y reinstall shadow-utils
             - RUN useradd podman; echo podman:10000:5000 > /etc/subuid; echo podman:10000:5000 > /etc/subgid
-            - VOLUME /var/lib/containers
+            - VOLUME /etc/containers
             - VOLUME /home/podman/.local/share/containers
-            - ADD https://raw.githubusercontent.com/containers/image_build/refs/heads/main/podman/containers.conf /var/lib/containers/containers.conf
+            - ADD https://raw.githubusercontent.com/containers/image_build/refs/heads/main/podman/containers.conf /etc/containers/containers.conf
             - ADD https://raw.githubusercontent.com/containers/image_build/refs/heads/main/podman/podman-containers.conf /home/podman/.config/containers/containers.conf
             - RUN chown podman:podman -R /home/podman
             - RUN chmod 644 /etc/containers/containers.conf; sed -i -e 's|^#mount_program|mount_program|g' -e '/additionalimage.*/a "/var/lib/shared",' -e 's|^mountopt[[:space:]]*=.*$|mountopt = "nodev,fsync=0"|g' /etc/containers/storage.conf
