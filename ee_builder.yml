@@ -17,6 +17,7 @@
             - podman
             - fuse-overlayfs
             - ansible-builder
+            - slirp4netns
           python:
             - ansible-navigator
             - pytz
@@ -41,12 +42,15 @@
             - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_AUTH_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
             - ARG ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_TOKEN
           prepend_final:
-            - RUN dnf -y update
-            - RUN yum -y reinstall shadow-utils
-            - RUN useradd podman
-            - RUN echo podman:10000:5000 > /etc/subuid
-            - RUN echo podman:10000:5000 > /etc/subgid
+            - RUN dnf -y update; yum -y reinstall shadow-utils
+            - RUN useradd podman; echo podman:10000:5000 > /etc/subuid; echo podman:10000:5000 > /etc/subgid
             - VOLUME /var/lib/containers
-            - VOLUME /home/podman/.local/share/containers          
+            - VOLUME /home/podman/.local/share/containers
+            - ADD https://raw.githubusercontent.com/containers/image_build/refs/heads/main/podman/containers.conf /etc/containers/containers.conf
+            - ADD https://raw.githubusercontent.com/containers/image_build/refs/heads/main/podman/podman-containers.conf /home/podman/.config/containers/containers.conf
+            - RUN chown podman:podman -R /home/podman
+            - RUN chmod 644 /etc/containers/containers.conf; sed -i -e 's|^#mount_program|mount_program|g' -e '/additionalimage.*/a "/var/lib/shared",' -e 's|^mountopt[[:space:]]*=.*$|mountopt = "nodev,fsync=0"|g' /etc/containers/storage.conf
+            - RUN mkdir -p /var/lib/shared/overlay-images /var/lib/shared/overlay-layers /var/lib/shared/vfs-images /var/lib/shared/vfs-layers; touch /var/lib/shared/overlay-images/images.lock; touch /var/lib/shared/overlay-layers/layers.lock; touch /var/lib/shared/vfs-images/images.lock; touch /var/lib/shared/vfs-layers/layers.lock
+            - ENV _CONTAINERS_USERNS_CONFIGURED=""
   roles:
     - infra.ee_utilities.ee_builder
