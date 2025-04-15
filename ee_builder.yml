@@ -17,7 +17,7 @@
             - python-pyyaml
           python:
             - ansible-navigator
-            - pytz 
+            - pytz
             - python-dateutil>=2.7.0
             - awxkit
           galaxy:
@@ -28,12 +28,10 @@
           container_init:
             package_pip: dumb-init>=1.2.5
             entrypoint: '["dumb-init"]'
-            cmd: '["csh"]'
+            cmd: '["bash"]'
           package_manager_path: /usr/bin/microdnf
-          relax_password_permissions: false
-          skip_ansible_check: true
-          workdir: /myworkdir
-          user: root
+#          workdir: /myworkdir
+#          user: root
           tags:
             - ee_development:latest
         build_steps:
@@ -41,13 +39,8 @@
             - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub_certified,upstream_galaxy
             - ENV ANSIBLE_GALAXY_SERVER_UPSTREAM_GALAXY_URL=https://galaxy.ansible.com/
             - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_URL=https://console.redhat.com/api/automation-hub/content/validated/
-#            - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_URL=https://cloud.redhat.com/api/automation-hub/
             - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_AUTH_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
             - ARG ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_TOKEN
-
-
-
-
 
   roles:
     - infra.ee_utilities.ee_builder
