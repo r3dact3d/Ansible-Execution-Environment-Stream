@@ -1,15 +1,14 @@
 ---
 - name: Playbook to create Execution Environment
   hosts: localhost
-  gather_facts: true
+  gather_facts: false
   vars:
-    ee_verbosity: 3
+    
     ee_pull_collections_from_hub: false
     ee_ah_host: galaxy.ansible.com
     ee_registry_dest: docker.io/r3dact3d
     ee_registry_username: r3dact3d
     ee_builder_dir_clean: true
-    ee_version: 3
     ee_list:
       - name: ubi9-infra-ee-utilities-builder
         tag: 1.1.0
