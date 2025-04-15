@@ -14,8 +14,7 @@
           ansible_runner:
             package_pip: ansible-runner
           system:
-            - podman
-            - fuse-overlayfs
+            - ansible-builder
           python:
             - ansible-navigator
             - pytz
@@ -29,10 +28,6 @@
             system:
               - container-selinux
         options:
-          container_init:
-            package_pip: dumb-init>=1.2.5
-            entrypoint: '["dumb-init"]'
-            cmd: '["bash"]'
           tags:
             - ee_development:latest
         build_steps:
