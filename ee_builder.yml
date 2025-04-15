@@ -6,10 +6,7 @@
     ee_aap_version: 2.5
     ee_ah_host: galaxy.ansible.com
     ee_list:
-      - name: ubi9-dellemc-os10-ee
-        tag: 1.1.0
-        # base_image: registry.access.redhat.com/ubi9/ubi-minimal:9.5-1742914212
-        base_image: docker.io/redhat/ubi9:latest
+      - name: ee_base_rhel9
         dependencies:
           ansible_core:
             package_pip: ansible-core
@@ -17,11 +14,28 @@
             package_pip: ansible-runner
           system:
             - podman
+            - python-pyyaml
           python:
             - ansible-navigator
+            - pytz 
+            - python-dateutil>=2.7.0
+            - awxkit
           galaxy:
             collections:
-              - dellemc.os10
+              - name: awx.awx
+                version: 22.4.0
+        options:
+          container_init:
+            package_pip: dumb-init>=1.2.5
+            entrypoint: '["dumb-init"]'
+            cmd: '["csh"]'
+          package_manager_path: /usr/bin/microdnf
+          relax_password_permissions: false
+          skip_ansible_check: true
+          workdir: /myworkdir
+          user: root
+          tags:
+            - ee_development:latest
         build_steps:
           prepend_galaxy:
             - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub_certified,upstream_galaxy
@@ -30,6 +44,10 @@
 #            - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_URL=https://cloud.redhat.com/api/automation-hub/
             - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_AUTH_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
             - ARG ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_TOKEN
+
+
+
+
 
   roles:
     - infra.ee_utilities.ee_builder
