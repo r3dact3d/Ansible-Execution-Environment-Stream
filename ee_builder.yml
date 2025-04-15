@@ -28,6 +28,7 @@
           galaxy:
             collections:
               - infra.aap_configuration
+              - dellemc.os10
         build_steps:
           prepend_galaxy:
             - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub_certified,upstream_galaxy
