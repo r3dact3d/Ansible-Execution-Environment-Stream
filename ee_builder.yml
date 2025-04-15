@@ -34,20 +34,18 @@
           tags:
             - ee_development:latest
         build_steps:
-          append_base:
-            - RUN dnf -y update; yum -y reinstall shadow-utils
-            - RUN useradd podman; \
-              echo podman:10000:5000 > /etc/subuid; \
-              echo podman:10000:5000 > /etc/subgid
-            - VOLUME /var/lib/containers
-            - VOLUME /home/podman/.local/share/containers
-
           prepend_galaxy:
             - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub_certified,upstream_galaxy
             - ENV ANSIBLE_GALAXY_SERVER_UPSTREAM_GALAXY_URL=https://galaxy.ansible.com/
             - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_URL=https://console.redhat.com/api/automation-hub/content/validated/
             - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_AUTH_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
             - ARG ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_TOKEN
-
+          append_builder:
+            - RUN dnf -y update; yum -y reinstall shadow-utils
+            - RUN useradd podman; \
+              echo podman:10000:5000 > /etc/subuid; \
+              echo podman:10000:5000 > /etc/subgid
+            - VOLUME /var/lib/containers
+            - VOLUME /home/podman/.local/share/containers
   roles:
     - infra.ee_utilities.ee_builder
