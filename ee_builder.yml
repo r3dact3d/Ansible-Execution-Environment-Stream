@@ -7,7 +7,7 @@
     ee_ah_host: galaxy.ansible.com
     ee_list:
       - name: ee_test_podman
-        image: quay.io/podman/stable:latest
+        image: registry.fedoraproject.org/fedora:latest
         dependencies:
           ansible_core:
             package_pip: ansible-core==2.16
