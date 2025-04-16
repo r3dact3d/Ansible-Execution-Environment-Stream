@@ -43,11 +43,11 @@
             - ARG ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_TOKEN
 
   pre_tasks:
-  - name: Install ansible-builder
-    tags: always
-    ansible.builtin.pip:
-      name: ansible-builder
-      executable: pip3
+    - name: Install ansible-builder
+      tags: always
+      ansible.builtin.pip:
+        name: ansible-builder
+        executable: pip3
 
   roles:
     - infra.ee_utilities.ee_builder
