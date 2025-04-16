@@ -6,7 +6,7 @@
     ee_aap_version: 2.5
     ee_ah_host: galaxy.ansible.com
     ee_list:
-      - name: ee_test_podman
+      - name: ee_test_builder
         image: registry.fedoraproject.org/fedora:latest
         dependencies:
           ansible_core:
