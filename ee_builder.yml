@@ -7,7 +7,7 @@
     ee_ah_host: galaxy.ansible.com
     ee_list:
       - name: ee_test_builder
-        image: registry.fedoraproject.org/fedora:latest
+        image: registry.access.redhat.com/ubi9-minimal:latest
         dependencies:
           ansible_core:
             package_pip: ansible-core==2.16
