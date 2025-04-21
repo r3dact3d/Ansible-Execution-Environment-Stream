@@ -15,20 +15,12 @@
           ansible_runner:
             package_pip: ansible-runner
           system:
-            - podman
-            - fuse-overlayfs
-            - ansible-builder
-            - slirp4netns
+            "{{ system_packages }}"
           python:
-            - ansible-navigator
-            - pytz
-            - python-dateutil>=2.7.0
-            - awxkit
+            "{{ python_packages }}"
           galaxy:
             collections:
-              - name: awx.awx
-                version: 22.4.0
-              - infra.aap_configuration
+              "{{ galaxy_collections }}"
           exclude:
             system:
               - container-selinux
