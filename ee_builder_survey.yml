@@ -4,10 +4,11 @@
   gather_facts: false
   vars:
     ee_aap_version: 2.5
-    ee_ah_host: galaxy.ansible.com
+    ee_ah_host: "{{ ee_ah_host }}"
+    ee_registry_dest: "{{ ee_registry_dest }}"
     ee_list:
-      - name: ee_test_builder
-        image: registry.access.redhat.com/ubi9-minimal:latest
+      - name: "{{ ee_name }}"
+        image: "{{ base_image }}"
         dependencies:
           ansible_core:
             package_pip: ansible-core==2.16
@@ -32,8 +33,8 @@
             system:
               - container-selinux
         options:
-          tags:
-            - ee_development:latest
+          tags: 
+            - automated: yes
         build_steps:
           prepend_galaxy:
             - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub_certified,upstream_galaxy
