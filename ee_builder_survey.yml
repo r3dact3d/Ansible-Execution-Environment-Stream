@@ -37,19 +37,16 @@
 
   tasks:
     - name: Split the System Packages into a list
-      when: ',' in system_packages 
       set_fact:
         system_packages: "{{ system_packages.split(',') }}"
       
 
     - name: Split the Python Packages into a list
-      when: ',' in python_packages 
       set_fact:
         python_packages: "{{ python_packages.split(',') }}"
       
 
     - name: Split the Galaxy Collections into a list
-      when: ',' in galaxy_collections
       set_fact:
         galaxy_collections: "{{ galaxy_collections.split(',') }}"
        
