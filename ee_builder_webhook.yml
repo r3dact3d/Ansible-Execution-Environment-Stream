@@ -20,7 +20,6 @@
             - podman
             - fuse-overlayfs
             - ansible-builder
-            - slirp4netns
           python:
             - ansible-navigator
             - pytz
