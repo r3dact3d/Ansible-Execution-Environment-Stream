@@ -22,6 +22,9 @@
             - ansible-builder
           python:
             - ansible-navigator
+            - pytz
+            - python-dateutil>=2.7.0
+            - awxkit
           galaxy:
             collections:
               - name: awx.awx
