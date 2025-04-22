@@ -5,9 +5,6 @@
   vars:
     ee_aap_version: 2.5
     ee_ah_host: galaxy.ansible.com
-    ee_registry_dest: "{{ CONTROLLER_HOST }}"
-    ee_registry_username: "{{ CONTROLLER_USERNAME }}"
-    ee_registry_password: "{{ CONTROLLER_PASSWORD }}"
     ee_list:
       - name: ee_test_builder
         image: registry.access.redhat.com/ubi9-minimal:latest
