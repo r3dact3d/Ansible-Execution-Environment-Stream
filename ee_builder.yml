@@ -11,29 +11,22 @@
     ee_builder_dir_clean: true
     ee_list:
       - name: ubi9-infra-ee-utilities-builder
-        tag: 1.1.0
-        #base_image: registry.access.redhat.com/ubi9/ubi-minimal:9.5-1742914212
-        base_image: docker.io/redhat/ubi9:latest
         dependencies:
           ansible_core:
             package_pip: ansible-core
           ansible_runner:
             package_pip: ansible-runner
-          system:
-            - podman
+          system: []
           python:
-            - ansible-builder
-            - ansible-navigator
+            - requests
           galaxy:
             collections:
-              - infra.aap_configuration
-              - dellemc.os10
+              - community.general
         build_steps:
           prepend_galaxy:
             - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub_certified,upstream_galaxy
             - ENV ANSIBLE_GALAXY_SERVER_UPSTREAM_GALAXY_URL=https://galaxy.ansible.com/
             - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_URL=https://console.redhat.com/api/automation-hub/content/validated/
-#            - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_URL=https://cloud.redhat.com/api/automation-hub/
             - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_AUTH_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
             - ARG ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_TOKEN
 
