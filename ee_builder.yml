@@ -10,7 +10,7 @@
     ee_registry_username: r3dact3d
     ee_builder_dir_clean: true
     ee_list:
-      - name: ubi9-infra-ee-utilities-builder
+      - name: ubi9-community-general
         dependencies:
           ansible_core:
             package_pip: ansible-core
