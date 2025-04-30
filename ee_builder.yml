@@ -27,7 +27,7 @@
             collections:
               - name: awx.awx
                 version: 22.4.0
-              - infra.aap_configuration
+              - redhat.insights
           exclude:
             system:
               - container-selinux
