@@ -19,6 +19,7 @@
           system: []
           python:
             - requests
+            - proxmoxer
           galaxy:
             collections:
               - community.general
