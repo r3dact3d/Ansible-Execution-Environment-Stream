@@ -10,7 +10,7 @@
     ee_registry_username: r3dact3d
     ee_builder_dir_clean: true
     ee_list:
-      - name: ubi9-community-general
+      - name: ubi9-rhel-ai
         dependencies:
           ansible_core:
             package_pip: ansible-core
@@ -22,7 +22,7 @@
             - proxmoxer
           galaxy:
             collections:
-              - community.general
+              - redhat.ai
         build_steps:
           prepend_galaxy:
             - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub_certified,upstream_galaxy
