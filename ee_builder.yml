@@ -10,7 +10,8 @@
     ee_registry_username: r3dact3d
     ee_builder_dir_clean: true
     ee_list:
-      - name: ubi9-rhel-ai
+      - name: de-runejuhl-websockets
+        base_image: registry.redhat.io/ansible-automation-platform-25/de-minimal-rhel9:latest
         dependencies:
           ansible_core:
             package_pip: ansible-core
@@ -18,16 +19,17 @@
             package_pip: ansible-runner
           system: []
           python:
-            - requests
-            - proxmoxer
+            - aiomqtt
+            - aiosseclient
+            - websockets
           galaxy:
             collections:
-              - redhat.ai
+              - runejuhl.unusual_ansible
         build_steps:
           prepend_galaxy:
             - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub_certified,upstream_galaxy
             - ENV ANSIBLE_GALAXY_SERVER_UPSTREAM_GALAXY_URL=https://galaxy.ansible.com/
-            - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_URL=https://console.redhat.com/api/automation-hub/content/validated/
+            - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_URL=https://console.redhat.com/api/automation-hub/content/published/
             - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_AUTH_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
             - ARG ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_TOKEN
 
