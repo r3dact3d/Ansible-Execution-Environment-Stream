@@ -10,7 +10,7 @@
     ee_registry_username: r3dact3d
     ee_builder_dir_clean: true
     ee_list:
-      - name: de-runejuhl-websockets
+      - name: de-rhel9-runejuhl
         base_image: registry.redhat.io/ansible-automation-platform-25/de-minimal-rhel9:latest
         dependencies:
           ansible_core:

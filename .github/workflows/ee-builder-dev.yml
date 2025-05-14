@@ -33,4 +33,6 @@ jobs:
             -e "ee_registry_dest=${{ vars.EE_REGISTRY }}" \
             -e "ee_registry_username=${{ vars.EE_REGISTRY_USERNAME }}" \
             -e "ee_registry_password=${{ secrets.EE_REGISTRY_PASSWORD }}" \
+            -e "ee_base_registry_username=${{ vars.EE_BASE_REGISTRY_USERNAME }}" \
+            -e "ee_base_registry_password=${{ secrets.EE_BASE_REGISTRY_PASSWORD }}" \
             -e "ah_token=${{ secrets.AH_TOKEN }}"
