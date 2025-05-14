@@ -9,19 +9,19 @@
     ee_registry_username: r3dact3d
     ee_builder_dir_clean: true
     ee_list:
-      - name: de-rhel9-runejuhl
-        base_image: registry.redhat.io/ansible-automation-platform-25/de-minimal-rhel9:latest
+      - name: ee-rhel9-ai
+        base_image: registry.redhat.io/ansible-automation-platform-25/ee-minimal-rhel9:latest
         dependencies:
           ansible_core:
             package_pip: ansible-core
           ansible_runner:
             package_pip: ansible-runner
           system: []
-          python:
-            - websockets
+          python: []
           galaxy:
             collections:
-              - runejuhl.unusual_ansible
+              - redhat.ai 
+
         build_steps:
           prepend_galaxy:
             - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub_certified,upstream_galaxy
