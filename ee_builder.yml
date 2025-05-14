@@ -3,9 +3,8 @@
   hosts: localhost
   gather_facts: false
   vars:
-    
     ee_pull_collections_from_hub: false
-#    ee_ah_host: galaxy.ansible.com
+    ee_ah_host: galaxy.ansible.com
     ee_registry_dest: docker.io/r3dact3d
     ee_registry_username: r3dact3d
     ee_builder_dir_clean: true
@@ -35,3 +34,4 @@
 
   roles:
     - infra.ee_utilities.ee_builder
+    
