@@ -17,10 +17,15 @@
           ansible_runner:
             package_pip: ansible-runner
           system: []
-          python: []
+          python:
+            - pytap2
+            - "meshtastic[cli]"
           galaxy:
             collections:
-              - redhat.ai 
+              - name: containers.podman
+                source: https://galaxy.ansible.com
+              - name: community.general
+                source: https://galaxy.ansible.com
 
         build_steps:
           prepend_galaxy:
