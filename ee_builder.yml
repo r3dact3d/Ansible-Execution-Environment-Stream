@@ -22,7 +22,10 @@
             - python-nmap
           galaxy:
             collections:
-              - community.general 
+              - name: containers.podman
+                source: https://galaxy.ansible.com
+              - name: community.general
+                source: https://galaxy.ansible.com
 
         build_steps:
           prepend_galaxy:
