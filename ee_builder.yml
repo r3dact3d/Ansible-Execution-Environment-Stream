@@ -7,8 +7,8 @@
     ee_ah_host: galaxy.ansible.com
     ee_builder_dir_clean: true
     ee_list:
-      - name: ee-rhel9-routeros
-        base_image: registry.redhat.io/ansible-automation-platform-25/ee-minimal-rhel9:latest
+      - name: ee-rhel9-aws-ps
+        base_image: registry.redhat.io/ansible-automation-platform-26/ee-minimal-rhel9:latest
         dependencies:
           ansible_core:
             package_pip: ansible-core
@@ -16,12 +16,15 @@
             package_pip: ansible-runner
           system: []
           python:
-            - librouteros
+            - boto3
+            - botocore
+            - awscli
+            - powershell
           galaxy:
             collections:
-              - name: containers.podman
+              - name: amazon.aws
                 source: https://galaxy.ansible.com
-              - name: community.general
+              - name: community.windows
                 source: https://galaxy.ansible.com
         build_steps:
           prepend_galaxy:
