@@ -34,7 +34,7 @@
             - ARG ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_CERTIFIED_TOKEN
           prepend_final:
             - RUN microdnf install -y git openssh-clients && microdnf clean all
-            - RUN RUN curl -sSL https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos.d/microsoft.repo
+            - RUN curl -sSL https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos.d/microsoft.repo
             - RUN dnf install -y powershell
   roles:
     - infra.ee_utilities.ee_builder
