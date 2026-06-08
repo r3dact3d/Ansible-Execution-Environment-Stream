@@ -14,11 +14,13 @@
             package_pip: ansible-core
           ansible_runner:
             package_pip: ansible-runner
-          system: []
+          system:
+            - git
           python:
             - boto3
             - botocore
             - awscli
+            - git-remote-codecommit
           galaxy:
             collections:
               - name: amazon.aws
